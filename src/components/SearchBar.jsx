@@ -1,5 +1,5 @@
 import React from 'react';
-import './Contacts.css';
+import '../Contacts.css';
 
 const SearchBar = ({onSearch}) => {
 	const handleChange = (e) => {
