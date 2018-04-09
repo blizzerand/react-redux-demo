@@ -16,15 +16,6 @@ export default function contactReducer(state = initialState.contacts, action) {
 					...state.newContact, ...action.payload }
 			}
 		}
-		
-		case "TOGGLE_CONTACT_FORM": {
-			return {
-				...state,
-				ui: {
-					isContactFormHidden: !state.ui.isContactFormHidden
-				}
-			}
-		}
 
 		default: return state;
 	}

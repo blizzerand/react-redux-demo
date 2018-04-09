@@ -6,9 +6,8 @@ export const addContact =(contactObject) => {
 }
 
 export const handleInputChange = (name, value) => {
-	
 	return {
-
+		
 		type: "HANDLE_INPUT_CHANGE",
 		payload: { [name]: value}
 	}

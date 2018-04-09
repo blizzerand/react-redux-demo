@@ -7,11 +7,13 @@ const initialState = {
 				email: '',
 				address: '',
 				phone: ''
-			},
-		ui: {
-			isContactFormHidden: true
+		},
+		
+	},
+
+	ui: {
+			isAddContactFormHidden: true
 		}
-	}
 }
 
 export default initialState;
