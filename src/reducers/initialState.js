@@ -8,7 +8,7 @@ const initialState = {
 				address: '',
 				phone: ''
 		},
-		
+		searchText: 'a'		
 	},
 
 	ui: {

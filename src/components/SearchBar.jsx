@@ -1,9 +1,11 @@
 import React from 'react';
 import '../Contacts.css';
+import { connect } from 'react-redux';
+import { handleSearchInput } from '../actions';
 
-const SearchBar = ({onSearch}) => {
+const SearchBar = ({dispatch}) => {
 	const handleChange = (e) => {
-		onSearch(e.target.value);
+		dispatch(handleSearchInput(e.target.value));
 	}
 	return( 
 		<div className="input-group ">
@@ -15,4 +17,4 @@ const SearchBar = ({onSearch}) => {
     )
 }
 
-export default SearchBar;
+export default connect() (SearchBar);

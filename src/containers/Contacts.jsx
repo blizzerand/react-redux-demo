@@ -4,6 +4,7 @@ import ContactCard from '../components/ContactCard';
 import '../Contacts.css';
 import AddContact from './AddContact';
 import { connect } from 'react-redux'; 
+import {fetchContacts} from '../actions';
 
 class Contact extends Component {
 
@@ -12,15 +13,20 @@ class Contact extends Component {
     this.returnContactList = this.returnContactList.bind(this);
   }
 
+  componentWillMount() {
+
+    this.props.fetchAllContacts();
+
+  }
 
   returnContactList() {
-    return this.props.contactlist;
+    return this.props.contactList;
   }
 
 
   render() {
 
-
+   
     return (
     	<div>
 
@@ -29,12 +35,12 @@ class Contact extends Component {
          	<AddContact/>
          	<br />
           	<ul className="list-group" id="contact-list">
-           		{ this.returnContactList().map(
+           		{/*this.returnContactList().map(
                   (contact) => 
                   <li key={contact.email} className="list-group-item"> 
                     <ContactCard contact = {contact}/>
                   </li>
-              	)}
+              	)*/}
             </ul>
         </div>
     );
@@ -43,10 +49,43 @@ class Contact extends Component {
 
 function mapStateToProps(state) {
   return {
-    contactlist : state.contacts.contactList
+    contactList : filterContacts(state.contacts.contactList, state.contacts.searchText),
+    searchText: state.contacts.searchText,
+   
+    
+  }
+}
+
+const filterContacts = (contacts, searchText) => {
+ 
+  if(searchText === 'a') {
+      
+      return contacts
+   }
+
+   else {
+    let out = [];
+    contacts.map(contact => { searchContact(contact,searchText)? out.push(contact): null });
+    return out;
+  }
+
+}
+
+   
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchAllContacts: () => dispatch(fetchContacts())
   }
 }
 
 
-export default connect(mapStateToProps) (Contact);
+const searchContact = (contact, searchText) => {
+   if (contact.name.toLowerCase().search(searchText.toLowerCase()) != -1 ||
+ contact.surname.toLowerCase().search(searchText.toLowerCase()) != -1 ||
+ contact.phone.toString().search(searchText) != -1
+) return true}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Contact);
 
