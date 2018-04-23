@@ -11,7 +11,7 @@ render(
 
 const store = configureStore();
 
-const unsubscribe = store.subscribe(() =>
+ store.subscribe(() =>
   console.log(store.getState())
 )
 
@@ -21,4 +21,3 @@ store.dispatch(toggleContactForm());
 store.dispatch(toggleContactForm());
 store.dispatch(handleInputChange('email', 'manjunath@redmonark.com'))
 
-unsubscribe;
