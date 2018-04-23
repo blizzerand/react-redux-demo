@@ -1,14 +1,24 @@
 import React from 'react';
 import {render}from 'react-dom';
-import { Provider } from 'react-redux'
 import App from './App';
-
-import configureStore from './store'
-
-const store = configureStore();
+import configureStore  from './store/configureStore';
+import {toggleContactForm,
+	handleInputChange} from './actions';
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+    <App />,
   document.getElementById('root')
 )
+
+const store = configureStore();
+
+const unsubscribe = store.subscribe(() =>
+  console.log(store.getState())
+)
+
+/* returns isContactFormHidden returns false */
+store.dispatch(toggleContactForm());
+/* returns isContactFormHidden returns false */
+store.dispatch(toggleContactForm());
+store.dispatch(handleInputChange('email', 'manjunath@redmonark.com'))
+
+unsubscribe;

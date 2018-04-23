@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import Contacts from './containers/Contacts.jsx'
-
 /*App component starts here */
 class App extends Component {
 
@@ -11,7 +9,7 @@ class App extends Component {
         <div className="row">
           <div className="col-sm-7 offset-sm-2">
             <span className="title">Contacts</span>
-              <Contacts />
+            {/* To be completed */ }
           </div>
         </div>
       </div>
