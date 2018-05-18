@@ -47,7 +47,7 @@ class AddContact extends Component {
 		return(
 			<div>
 				
-				{ this.props.isHidden === false ? this.renderForm(): <button onClick={this.showAddContactBox} className="btn"> Add Contact </button>}
+				{ this.props.isHidden === false ? this.renderForm(): <button  className="btn btn-secondary" style= {{ "marginLeft": "15px"}} type="submit" onClick={this.showAddContactBox} > Add Contact </button>}
 			</div>
 			)
 	}
