@@ -34,7 +34,7 @@ class AddContact extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.onToggle();
-		this.props.onFormSubmit(this.props.newContact);
+		this.props.onFormSubmit();
 	}
 	renderForm() {
 		return(
@@ -57,7 +57,6 @@ class AddContact extends Component {
 
 function mapStateToProps(state) {
     return {
-        contact : state.contacts,
         isHidden : state.ui.isAddContactFormHidden,
         newContact: state.contacts.newContact
     }

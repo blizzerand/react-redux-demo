@@ -3,6 +3,7 @@ import SearchBar from '../components/SearchBar';
 import ContactCard from '../components/ContactCard';
 import '../Contacts.css';
 import AddContact from './AddContact';
+import ContactList from '../components/ContactList';
 import { connect } from 'react-redux'; 
 import {fetchContacts} from '../actions';
 
@@ -34,14 +35,7 @@ class Contact extends Component {
      		<br />
          	<AddContact/>
          	<br />
-          	<ul className="list-group" id="contact-list">
-           		{/*this.returnContactList().map(
-                  (contact) => 
-                  <li key={contact.email} className="list-group-item"> 
-                    <ContactCard contact = {contact}/>
-                  </li>
-              	)*/}
-            </ul>
+          <ContactList contactList= {this.returnContactList()} />
         </div>
     );
   }

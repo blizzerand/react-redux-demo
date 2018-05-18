@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export const addContact =(contactObject) => {
+export const addContact =() => {
 	return {
 		type: "ADD_CONTACT",
-		payload: contactObject
+		
 	}
 }
 

@@ -5,7 +5,7 @@ export default function contactReducer(state = initialState.contacts, action) {
 		case "ADD_CONTACT": {
 			return {
 				...state,
-				contactList: [...state.contactList, action.payload]
+				contactList: [...state.contactList, state.newContact]
 			}
 		}
 
